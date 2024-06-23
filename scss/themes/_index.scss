@@ -1,54 +1,8 @@
-@layer themes.default {
-	:root {
-		// --color-gray-100: hsl(0, 0%, 100%);
-		--color-gray-100: #FFFFFF;
+// * тема без цветового оформления
+@forward 'default';
 
-		// --color-gray-92: hsl(0, 0%, 92%);
-		--color-gray-92: #EBEBEB;
+// * светлая тема
+@forward 'light';
 
-		// --color-gray-77: hsl(0, 0%, 77%);
-		--color-gray-77: #C4C4C4;
-
-		// --color-gray-75: hsl(0, 0%, 75%);
-		--color-gray-75: #C0C0C0;
-
-		// --color-gray-74: hsl(0, 0%, 74%);
-		--color-gray-74: #BCBCBC;
-
-		// --color-gray-73: hsl(240, 6%, 73%);
-		--color-gray-73: #B5B5BD;
-
-		// --color-gray-56: hsl(240, 10%, 56%);
-		--color-gray-56: #85859B;
-
-		// --color-gray-40: hsl(0, 0%, 40%);
-		--color-gray-40: #666666;
-
-		// --color-gray-35: hsl(212, 15%, 35%);
-		--color-gray-35: #4C5866;
-
-		// --color-gray-20: hsl(0, 0%, 20%);
-		--color-gray-20: #333333;
-
-		// ! move to light
-
-		// ! move to dark
-
-	}
-}
-
-// @layer themes.light {
-// 	@media (prefers-color-scheme: light) {
-// 		:root:not(.dark) {
-// 			color-scheme: light;
-// 		}
-// 	}
-// }
-
-// @layer themes.dark {
-// 	@media (prefers-color-scheme: dark) {
-// 		:root:not(.light) {
-// 			color-scheme: dark;
-// 		}
-// 	}
-// }
+// * тёмная тема
+@forward 'dark';
