@@ -1,7 +1,11 @@
 @layer base.typography {
+	html {
+		font-size: 16px;
+	}
+
 	body {
 		font-family: 'Roboto', sans-serif;
-		font-size: 16px;
+		font-size: 1.125rem;
 		font-weight: 400;
 		line-height: 1.5;
 	}
