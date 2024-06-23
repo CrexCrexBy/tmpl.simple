@@ -1,3 +1,5 @@
-[RU](#простой-шаблон) | [EN](#simple-template)
+[RU](#ru-простой-шаблон) | [EN](#en-simple-template)
 
-# Простой шаблон
+# [RU] Простой шаблон
+
+# [EN] Simple template
