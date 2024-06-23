@@ -2,9 +2,9 @@
 
 ![Изображение исходного шаблона](/images/default-template.webp)
 
-# [RU] Простой шаблон
+# [RU] Простые вещи
 [Источник шаблона - верстаем.онлайн](https://verstaem.online/projects/simple/)
 
 
-# [EN] Simple template
+# [EN] Simple things
 ... not translate ...
