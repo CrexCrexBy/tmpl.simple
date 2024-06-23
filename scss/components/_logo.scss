@@ -1,0 +1,9 @@
+@layer components.logo {
+	.logo {
+		font-size: 1.4375rem;
+
+		&__icon {
+			aspect-ratio: 140 / 22;
+		}
+	}
+}
