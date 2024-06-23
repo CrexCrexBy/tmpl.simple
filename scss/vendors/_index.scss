@@ -1,0 +1,5 @@
+@use 'sass:meta' as meta;
+
+@layer vendors.reset {
+	@include meta.load-css('the-new-css-reset/reset.css');
+}
