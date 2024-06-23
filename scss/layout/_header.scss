@@ -1,0 +1,10 @@
+@layer components.header {
+	.header {
+		width: 100%;
+
+		&--sticky {
+			position: sticky;
+			top: 0;
+		}
+	}
+}
