@@ -6,5 +6,8 @@
 	body {
 		min-height: 100dvh;
 		margin: 0;
+
+		color: var(--body-color);
+		background-color: var(--body-background-color);
 	}
 }

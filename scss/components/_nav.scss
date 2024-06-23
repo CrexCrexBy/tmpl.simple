@@ -1,0 +1,9 @@
+@layer components.nav {
+	.nav {
+
+		&__container {
+			display: flex;
+			gap: var(--nav-gap);
+		}
+	}
+}
