@@ -1,0 +1,7 @@
+@layer layout.section {
+	.section {
+		--section-padding: 3.75rem;
+
+		padding: var(--section-padding) 0;
+	}
+}
