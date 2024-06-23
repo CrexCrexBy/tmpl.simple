@@ -1,9 +1,64 @@
 @layer components.nav {
 	.nav {
+		$this: &;
 
+		--nav-gap: 1rem;
+		--nav-item-gap: .5rem;
+		--nav-item-min-height: 5rem;
+
+		// * элементы
 		&__container {
-			display: flex;
+			@extend %flex-align-center;
 			gap: var(--nav-gap);
+
+			&:not(:has(#{$this}__start))::before,
+			&:not(:has(#{$this}__end))::after {
+				content: '';
+				@extend %flex-1;
+			}
 		}
+
+		&__start {
+			@extend %flex-align-center;
+			justify-content: flex-start;
+			@extend %flex-1;
+
+		}
+
+		&__center {
+			@extend %flex-align-center;
+			justify-content: center;
+		}
+
+		&__end {
+			@extend %flex-align-center;
+			justify-content: flex-end;
+			@extend %flex-1;
+		}
+
+		&__list {
+			@extend %flex-align-center;
+		}
+
+		&__item {
+			@extend %flex-align-center;
+			gap: var(--nav-item-gap);
+			min-height: var(--nav-item-min-height);
+		}
+
+		&__link {
+			@extend #{$this}__item;
+		}
+
+	}
+
+	// * локальные плейсхолдеры
+	%flex-align-center {
+		display: flex;
+		align-items: center;
+	}
+
+	%flex-1 {
+		flex: 1;
 	}
 }
