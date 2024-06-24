@@ -3,27 +3,28 @@
 		display: flex;
 		gap: var(--logo-gap, .3125rem);
 		align-items: center;
-
-		font-size: 1rem;
+		color: var(--logo-color);
 
 		&__icon {
-			display: inline-block;
-
-			height: 1.0625em;
+			pointer-events: none;
+			user-select: none;
 
 			&--circle {
-				aspect-ratio: 20 / 17;
+				min-width: 1.0625rem;
+				max-width: 1.0625rem;
 			}
 
 			&--ellipse {
-				aspect-ratio: 33 / 17;
+				min-width: 2rem;
+				max-width: 1.0625rem;
 			}
 		}
 
 		&__title {
 			font-family: 'Ubuntu', sans-serif;
+			font-size: 1.25rem;
 			font-weight: 300;
-			font-size: 1.25em;
 		}
+
 	}
 }
