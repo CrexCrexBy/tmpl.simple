@@ -2,63 +2,95 @@
 	.nav {
 		$this: &;
 
-		--nav-gap: 1rem;
+		--nav-border-block-end-color: var(--color-gray-87);
+		--nav-border-block-end-style: solid;
+		--nav-border-block-end-width: .0625rem;
+
+		--nav-background-color: var(--color-gray-100);
+
+		--nav-gap: 3.75rem;
 		--nav-item-gap: .5rem;
-		--nav-item-min-height: 5rem;
+		--nav-item-min-height: calc(5rem - var(--nav-border-block-end-width));
+		--nav-xsmall-gap: calc(var(--nav-gap) / 2);
+
+		font-size: 1.25rem;
+
+		border-block-end: var(--nav-border-block-end-color) var(--nav-border-block-end-style) var(--nav-border-block-end-width);
+
+		background-color: var(--nav-background-color);
 
 		// * элементы
 		&__container {
-			@extend %flex-align-center;
+			display: flex;
+			align-items: center;
+
 			gap: var(--nav-gap);
+
+			&:not(:has(#{$this}__center)) {
+				justify-content: space-between;
+			}
 
 			&:not(:has(#{$this}__start))::before,
 			&:not(:has(#{$this}__end))::after {
 				content: '';
-				@extend %flex-1;
+				flex: 1;
 			}
 		}
 
 		&__start {
-			@extend %flex-align-center;
-			justify-content: flex-start;
-			@extend %flex-1;
+			display: flex;
+			align-items: center;
 
+			gap: var(--nav-gap);
+			justify-content: flex-start;
+
+			#{$this}__container:not(:has(#{$this}__center)):has(#{$this}__end)::after {
+				flex: 1;
+			}
 		}
 
 		&__center {
-			@extend %flex-align-center;
+			display: flex;
+			align-items: center;
+
+			gap: var(--nav-gap);
 			justify-content: center;
 		}
 
 		&__end {
-			@extend %flex-align-center;
+			display: flex;
+			align-items: center;
+
+			gap: var(--nav-gap);
 			justify-content: flex-end;
-			@extend %flex-1;
+
+			#{$this}__container:not(:has(#{$this}__center)):has(#{$this}__start)::before {
+				flex: 1;
+			}
 		}
 
 		&__list {
-			@extend %flex-align-center;
+			display: flex;
+			align-items: center;
+			gap: var(--nav-gap);
+
+			&--xsmall {
+				gap: var(--nav-xsmall-gap);
+			}
 		}
 
 		&__item {
-			@extend %flex-align-center;
+			display: flex;
+			align-items: center;
 			gap: var(--nav-item-gap);
 			min-height: var(--nav-item-min-height);
+
+			text-wrap: nowrap;
 		}
 
 		&__link {
 			@extend #{$this}__item;
 		}
 
-	}
-
-	// * локальные плейсхолдеры
-	%flex-align-center {
-		display: flex;
-		align-items: center;
-	}
-
-	%flex-1 {
-		flex: 1;
 	}
 }
