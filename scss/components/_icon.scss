@@ -1,8 +1,41 @@
 @layer components.icon {
 	.icon {
-		min-height: 1em;
-		aspect-ratio: 1;
-		fill: currentColor;
-		stroke: currentColor;
+		display: inline-block;
+		aspect-ratio: var(--icon-aspect-ratio, 1);
+
+		width: var(--icon-width, 1em);
+		min-width: var(--icon-width, 1em);
+		height: var(--icon-height, 1em);
+		min-height: var(--icon-height, 1em);
+		line-height: 1;
+
+		&--circle {
+			stroke-width: .0625rem;
+		}
+
+		&--ellipse {
+			--icon-aspect-ratio: 32 / 17;
+			stroke-width: .0625rem;
+		}
+
+		&--search {
+			stroke-width: .125rem;
+		}
+
+		&--login {
+			stroke-width: .125rem;
+		}
+
+		&--fill {
+			fill: currentColor;
+			stroke: none;
+		}
+
+		&--stroke {
+			fill: none;
+			stroke: currentColor;
+			stroke-linecap: round;
+			stroke-linejoin: round;
+		}
 	}
 }

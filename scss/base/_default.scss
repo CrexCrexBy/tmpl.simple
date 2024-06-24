@@ -1,6 +1,7 @@
 @layer base.default {
 	html {
 		scrollbar-gutter: stable;
+		overflow-x: hidden;
 	}
 
 	body {
@@ -9,5 +10,22 @@
 
 		color: var(--body-color);
 		background-color: var(--body-background-color);
+	}
+
+	audio,
+	canvas,
+	iframe,
+	img,
+	svg,
+	video {
+		vertical-align: middle;
+	}
+
+	canvas,
+	img,
+	svg,
+	video {
+		max-width: 100%;
+		height: auto;
 	}
 }
