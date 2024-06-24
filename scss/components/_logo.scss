@@ -1,9 +1,29 @@
 @layer components.logo {
 	.logo {
-		font-size: 1.4375rem;
+		display: flex;
+		gap: var(--logo-gap, .3125rem);
+		align-items: center;
+
+		font-size: 1rem;
 
 		&__icon {
-			aspect-ratio: 140 / 22;
+			display: inline-block;
+
+			height: 1.0625em;
+
+			&--circle {
+				aspect-ratio: 20 / 17;
+			}
+
+			&--ellipse {
+				aspect-ratio: 33 / 17;
+			}
+		}
+
+		&__title {
+			font-family: 'Ubuntu', sans-serif;
+			font-weight: 300;
+			font-size: 1.25em;
 		}
 	}
 }
