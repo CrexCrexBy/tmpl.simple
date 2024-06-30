@@ -1,0 +1,12 @@
+@use "sass:list";
+
+@function map-key-to-string($map, $prefix: '', $postfix: '', $separator: comma) {
+	$new-list: (
+	);
+
+@each $key, $value in $map {
+	$new-list: list.append($new-list, #{$prefix}#{$key}#{$postfix}, $separator);
+}
+
+@return $new-list;
+}
