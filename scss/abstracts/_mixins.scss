@@ -1,0 +1,26 @@
+@use "sass:map";
+@use 'variables';
+
+// * точки перелома дизайна
+// $breakpoints: (
+// 	xsmall: 750,
+// 	small: 920,
+// 	medium: 1200,
+// 	large: 1400,
+// 	xlarge: 1600) !default;
+
+@mixin media-min($name) {
+	@if map.get(variables.$breakpoints, $name) {
+		@media (width >=#{map.get(variables.$breakpoints, $name)}px) {
+			@content;
+		}
+	}
+}
+
+@mixin media-max($name) {
+	@if map.get(variables.$breakpoints, $name) {
+		@media (width < #{map.get(variables.$breakpoints, $name)}px) {
+			@content;
+		}
+	}
+}
