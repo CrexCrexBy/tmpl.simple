@@ -31,6 +31,8 @@
 			stroke: none;
 		}
 
+		transition: fill .2s linear;
+
 		&--stroke {
 			fill: none;
 			stroke: currentColor;
