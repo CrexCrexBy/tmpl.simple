@@ -1,0 +1,23 @@
+@use '../abstracts/variables';
+@use '../abstracts/functions';
+@use '../abstracts/mixins';
+
+@layer components.hidden {
+	.hidden {
+		$this: &;
+
+		&:not(#{functions.map-key-to-string(variables.$breakpoints, #{$this}__)
+
+	}) {
+		display: none;
+	}
+
+	@each $name, $size in variables.$breakpoints {
+		&--#{$name} {
+			@include mixins.media-min($name) {
+				display: none;
+			}
+		}
+	}
+}
+}
