@@ -1,0 +1,14 @@
+@use '../abstracts/variables';
+@use '../abstracts/mixins';
+
+@layer components.visible {
+	.visible {
+		@each $name, $size in variables.$breakpoints {
+			&--#{$name} {
+				@include mixins.media-max($name) {
+					display: none;
+				}
+			}
+		}
+	}
+}
