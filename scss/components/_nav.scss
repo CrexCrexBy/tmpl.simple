@@ -1,3 +1,5 @@
+@use '../abstracts/mixins';
+
 @layer components.nav {
 	.nav {
 		$this: &;
@@ -23,8 +25,9 @@
 		&__container {
 			display: flex;
 			align-items: center;
+			justify-content: space-between;
 
-			gap: var(--nav-gap);
+			column-gap: var(--nav-gap);
 
 			&:not(:has(#{$this}__center)) {
 				justify-content: space-between;
@@ -35,9 +38,14 @@
 				content: '';
 				flex: 1;
 			}
+
+			@include mixins.media-max('small') {
+				flex-wrap: wrap;
+			}
 		}
 
 		&__start {
+			position: relative;
 			display: flex;
 			align-items: center;
 
@@ -47,6 +55,20 @@
 			#{$this}__container:not(:has(#{$this}__center)):has(#{$this}__end)::after {
 				flex: 1;
 			}
+
+			@include mixins.media-max('xsmall') {
+				width: 100%;
+				flex-basis: 100%;
+				justify-content: center;
+
+				&::before {
+					position: absolute;
+					content: '';
+					inset: auto -1rem 0 -1rem;
+					height: var(--nav-border-block-end-width);
+					border-block-end: var(--nav-border-block-end-color) var(--nav-border-block-end-style) var(--nav-border-block-end-width);
+				}
+			}
 		}
 
 		&__center {
@@ -55,27 +77,61 @@
 
 			gap: var(--nav-gap);
 			justify-content: center;
+
+			@include mixins.media-max('small') {
+				& {
+					position: relative;
+					order: 1;
+					flex-basis: 100%;
+				}
+
+				&::before {
+					position: absolute;
+					content: '';
+					inset: 0 -1rem auto -1rem;
+					height: var(--nav-border-block-end-width);
+					border-block-end: var(--nav-border-block-end-color) var(--nav-border-block-end-style) var(--nav-border-block-end-width);
+				}
+			}
 		}
 
 		&__end {
 			display: flex;
 			align-items: center;
 
-			gap: var(--nav-gap);
+			column-gap: var(--nav-gap);
 			justify-content: flex-end;
 
 			#{$this}__container:not(:has(#{$this}__center)):has(#{$this}__start)::before {
 				flex: 1;
+			}
+
+			@include mixins.media-max('xsmall') {
+				justify-content: space-between;
 			}
 		}
 
 		&__list {
 			display: flex;
 			align-items: center;
-			gap: var(--nav-gap);
+			column-gap: var(--nav-gap);
+			flex-wrap: wrap;
 
 			&--xsmall {
 				gap: var(--nav-xsmall-gap);
+			}
+
+			&--space-between-small {
+
+				// TODO: перенести в visible / hidden
+				@include mixins.media-max('xsmall') {
+					display: none;
+				}
+
+				@include mixins.media-max('small') {
+					width: 100%;
+					justify-content: space-between;
+				}
 			}
 		}
 
@@ -89,7 +145,13 @@
 		}
 
 		&__link {
-			@extend #{$this}__item;
+			// @extend #{$this}__item;
+			display: flex;
+			align-items: center;
+			gap: var(--nav-item-gap);
+			min-height: var(--nav-item-min-height);
+
+			text-wrap: nowrap;
 		}
 
 	}

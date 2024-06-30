@@ -63,30 +63,39 @@
 					<div class="nav__start">
 
 						<a href="#" class="nav__link logo">
-							<svg class="icon icon--stroke icon--circle logo__icon logo__icon--circle">
+							<svg class="icon icon--stroke icon--circle logo__icon logo__icon--circle" aria-hidden="true">
 								<use href="#icon--circle"></use>
 							</svg>
 							<span class="logo__title">simple</span>
-							<svg class="icon icon--stroke icon--ellipse logo__icon logo__icon--ellipse">
+							<svg class="icon icon--stroke icon--ellipse logo__icon logo__icon--ellipse" aria-hidden="true">
 								<use href="#icon--ellipse"></use>
 							</svg>
-							<svg class="icon icon--stroke icon--circle logo__icon logo__icon--circle">
+							<svg class="icon icon--stroke icon--circle logo__icon logo__icon--circle" aria-hidden="true">
 								<use href="#icon--circle"></use>
 							</svg>
 						</a>
 
 					</div>
 
-					<div class="nav__end">
-
-						<ul class="nav__list">
+					<div class="nav__center">
+						<ul class="nav__list nav__list--space-between-small">
 							<li class="nav__item"><a href="#" class="nav__link">Продукция</a></li>
 							<li class="nav__item"><a href="#" class="nav__link">Материалы</a></li>
 							<li class="nav__item"><a href="#" class="nav__link">О нас</a></li>
 							<li class="nav__item"><a href="#" class="nav__link">Контакты</a></li>
 						</ul>
+					</div>
+
+					<div class="nav__end">
 
 						<div class="nav__list nav__list--xsmall">
+							<li class="nav__item visible visible--xsmall">
+								<button type="button" class="button hamburger">
+									<span class="hamburger__line"></span>
+									<span class="hamburger__line"></span>
+									<span class="hamburger__line"></span>
+								</button>
+							</li>
 							<li class="nav__item">
 								<a href="#" class="nav__link">
 									<svg class="icon icon--search icon--stroke">
@@ -142,8 +151,15 @@
 				<div class="nav nav__container">
 					<div class="nav__start">
 						<div class="nav__item logo">
-							<svg class="icon icon--logo">
-								<use href="#icon--logo"></use>
+							<svg class="icon icon--stroke icon--circle logo__icon logo__icon--circle" aria-hidden="true">
+								<use href="#icon--circle"></use>
+							</svg>
+							<span class="logo__title">simple</span>
+							<svg class="icon icon--stroke icon--ellipse logo__icon logo__icon--ellipse" aria-hidden="true">
+								<use href="#icon--ellipse"></use>
+							</svg>
+							<svg class="icon icon--stroke icon--circle logo__icon logo__icon--circle" aria-hidden="true">
+								<use href="#icon--circle"></use>
 							</svg>
 						</div>
 					</div>
@@ -151,30 +167,34 @@
 						<ul class="nav__list">
 							<li class="nav__item">
 								<a href="#" class="nav__link">
-									<svg class="icon icon--facebook">
+									<svg class="icon icon--facebook" aria-hidden="true">
 										<use href="#icon--facebook"></use>
 									</svg>
+									<span class="icon__title visually-hidden">Facebook</span>
 								</a>
 							</li>
 							<li class="nav__item">
 								<a href="#" class="nav__link">
-									<svg class="icon icon--twitter">
+									<svg class="icon icon--twitter" aria-hidden="true">
 										<use href="#icon--twitter"></use>
 									</svg>
+									<span class="icon__title visually-hidden">Twitter</span>
 								</a>
 							</li>
 							<li class="nav__item">
 								<a href="#" class="nav__link">
-									<svg class="icon icon--instagram">
+									<svg class="icon icon--instagram" aria-hidden="true">
 										<use href="#icon--instagram"></use>
 									</svg>
+									<span class="icon__title visually-hidden">Instagram</span>
 								</a>
 							</li>
 							<li class="nav__item">
 								<a href="#" class="nav__link">
-									<svg class="icon icon--youtube">
+									<svg class="icon icon--youtube" aria-hidden="true">
 										<use href="#icon--youtube"></use>
 									</svg>
+									<span class="icon__title visually-hidden">Youtube</span>
 								</a>
 							</li>
 						</ul>
