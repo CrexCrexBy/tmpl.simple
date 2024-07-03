@@ -4,12 +4,34 @@
 
 		padding: var(--section-padding) 0;
 
+		&__background {
+			position: absolute;
+
+			width: 100%;
+			height: 100%;
+
+			object-fit: cover;
+			object-position: center;
+
+			// background-position: center;
+			// background-repeat: no-repeat;
+			// background-size: cover;
+
+			z-index: -1;
+			user-select: none;
+		}
+
 		&--padding-small {
 			--section-padding: 1.875rem;
 		}
 
 		&--padding-xsmall {
 			--section-padding: .1875rem;
+		}
+
+		&--hero {
+			min-height: calc(100dvh - 5rem - .0625rem);
+			padding: 0;
 		}
 	}
 }
