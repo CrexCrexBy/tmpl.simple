@@ -3,6 +3,8 @@
 
 @layer components.visible {
 	.visible {
+		$this: &;
+
 		@each $name, $size in variables.$breakpoints {
 			&--#{$name} {
 				@include mixins.media-max($name) {
