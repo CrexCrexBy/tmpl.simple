@@ -121,11 +121,101 @@
 		<main class="main">
 
 			<section class="section section--hero">
+				<video id="backgroundVideo" class="section__background" width="1920" height="1080" loop muted preload="metadata" poster="images/4990243-hd_1920_1080_snapshot.webp">
+					<source src="video/4990243-hd_1920_1080_30fps.webm" type="video/webm" media="(width > 1280px)">
+					<source src="video/4990243-hd_1280_720_30fps.webm" type="video/webm" media="(960px < width <= 1280px)">
+					<source src="video/4990243-sd_640_360_30fps.webm" type="video/webm" media="(640px < width <= 960px)">
+					<source src="video/4990243-sd_426_240_30fps.webm" type="video/webm" media="(width < 640px)">
+					<p class="section__js-alert">Ваш браузер не поддерживает современный формат видео.</p>
+					<script>
+						/**
+						 * Функция автоматического запуска или остановки видео, если видео находится в видимой части экрана или нет
+						 * @param {object} video - видео контейнер, html тег <video>.
+						 * @param {number} videoSpeed - скорость воспроизведения видео, где 1 - нормальная скорость.
+						 * @param {number} viewportThreshold - значение от 0 до 1, отвечающее когда сработает функция. при 0 (по умолчанию) сработает сразу же, как только видео попадет в видимую часть экрана, а при 1 - никогда не сработает.
+						 * */
+						function playVideoInViewport(video, videoSpeed = 1, viewportThreshold = 0) {
+							if (!video) return;
+
+							video.muted = true;
+
+							let playPromise = video.play();
+							let observer;
+
+							if (playPromise !== undefined) {
+								playPromise
+									.then((_) => {
+										observer = new IntersectionObserver(
+											([entry]) => {
+												if (entry.isIntersecting) {
+													video.playbackRate = videoSpeed;
+													slowPlayPauseVideo(video, 'play', 500, 0.1);
+												} else {
+													slowPlayPauseVideo(video, 'pause', 500, 0.1);
+												}
+											},
+											{ threshold: viewportThreshold }
+										);
+										observer.observe(video);
+									})
+									.catch((error) => {
+										console.error(error);
+									});
+							}
+						}
+
+						/**
+						 * Функция плавного старта и остановки видео
+						 * @param {object} video - видео контейнер, html тег <video>.
+						 * @param {number} duration - плавность в миллисекундах (1с = 10000мс), с которой видео запускается или останавливается
+						 * @param {number} step - шаг плавности, от 0 до 1
+						 * */
+						function slowPlayPauseVideo(video, status, duration = 1000, step = .1) {
+							if (!video) return;
+
+							const basePlaybackRate = video.playbackRate;
+							console.log(`Изначальная скорость воспроизведения видео: ${basePlaybackRate}`);
+							if (status === 'play' /* || video.hasAttribute('autoplay') */) {
+								video.playbackRate = 0;
+								video.play();
+							}
+							let isVideoPlaying = video => !!(video.currentTime > 0 && !video.paused && !video.ended && video.readyState > 2);
+							let interval = window.setInterval(() => {
+								if (status === 'play') {
+									video.playbackRate = (video.playbackRate + step).toFixed(2);
+									console.log(`Скорость воспроизведения видео: ${video.playbackRate}`);
+									if (video.playbackRate >= basePlaybackRate) {
+										video.playbackRate = basePlaybackRate;
+										clearInterval(interval);
+										console.log('Видео запущено');
+									}
+								}
+								if (status === 'pause') {
+									video.playbackRate = (video.playbackRate - step).toFixed(2);
+									console.log(`Скорость воспроизведения видео: ${video.playbackRate}`);
+									if (video.playbackRate <= 0) {
+										video.pause();
+										video.playbackRate = basePlaybackRate;
+										clearInterval(interval);
+										console.log('Видео остановлено');
+									}
+								}
+							}, duration);
+
+						}
+
+						window.addEventListener('load', () => {
+							const video = document.getElementById('backgroundVideo');
+							playVideoInViewport(video, .6, .5);
+						})
+					</script>
+				</video>
 				<div class="section__container container"></div>
 			</section>
 
 			<section class="section">
-				<div class="section__container container"></div>
+				<div class="section__container container">
+				</div>
 			</section>
 
 			<section class="section">
