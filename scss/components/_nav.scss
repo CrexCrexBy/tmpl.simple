@@ -11,7 +11,7 @@
 		--nav-background-color: var(--color-gray-100);
 
 		// --nav-gap: 3.75rem; 
-		--nav-gap: 3.125rem; 
+		--nav-gap: 3.125rem;
 		--nav-item-gap: .5rem;
 		--nav-item-min-height: calc(5rem - var(--nav-border-block-end-width));
 		--nav-xsmall-gap: calc(var(--nav-gap) / 2);
@@ -84,6 +84,7 @@
 					position: relative;
 					order: 1;
 					flex-basis: 100%;
+					gap: var(--nav-xsmall-gap);
 				}
 
 				&::before {
@@ -108,7 +109,10 @@
 			}
 
 			@include mixins.media-max('xsmall') {
+				width: 100%;
+				flex-basis: 100%;
 				justify-content: space-between;
+				gap: var(--nav-xsmall-gap);
 			}
 		}
 
