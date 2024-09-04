@@ -6,18 +6,16 @@
 	.hidden {
 		$this: &;
 
-		&:not(#{functions.map-key-to-string(variables.$breakpoints, #{$this}__)
+		// &:not(:has(#{functions.map-key-to-string(variables.$breakpoints, #{$this}__)})) {
+		// 	display: none;
+		// }
 
-	}) {
-		display: none;
-	}
-
-	@each $name, $size in variables.$breakpoints {
-		&--#{$name} {
-			@include mixins.media-min($name) {
-				display: none;
+		@each $name, $size in variables.$breakpoints {
+			&--#{$name} {
+				@include mixins.media-min($name) {
+					display: none;
+				}
 			}
 		}
 	}
-}
 }
