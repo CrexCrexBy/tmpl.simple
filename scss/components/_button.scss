@@ -1,0 +1,11 @@
+@layer components.button {
+	.button {
+		$this: &;
+
+		@media (hover: hover) and (pointer: fine) {
+			&:not(:disabled) {
+				cursor: pointer;
+			}
+		}
+	}
+}
