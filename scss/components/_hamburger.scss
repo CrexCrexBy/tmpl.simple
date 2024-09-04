@@ -41,7 +41,8 @@
 				&::before,
 				&::after {
 					position: absolute;
-					inset-block-start: calc(var(--hamburger-padding-block) + var(--hamburger-gap) + var(--hamburger-line-height));
+					// inset-block-start: calc(var(--hamburger-padding-block) + var(--hamburger-gap) + var(--hamburger-line-height));
+					inset-block-start: calc(50% - (var(--hamburger-line-height) / 2));
 					inset-inline-start: var(--hamburger-padding-inline);
 					content: '';
 					width: var(--hamburger-line-width);
