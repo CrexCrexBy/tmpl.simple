@@ -1,11 +1,11 @@
 // * секции
 @forward 'visually-hidden';
 
-// * видимость
-@forward 'visible';
+// * Button
+@forward 'button';
 
-// * сокрытие
-@forward 'hidden';
+// * Hamburger
+@forward 'hamburger';
 
 // * навигация
 @forward 'nav';
@@ -16,5 +16,9 @@
 // * logo
 @forward 'logo';
 
-// * Hamburger
-@forward 'hamburger';
+// * видимость
+@forward 'visible';
+
+// * сокрытие
+@forward 'hidden';
+
