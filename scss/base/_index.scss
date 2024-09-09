@@ -1,8 +1,11 @@
 // * уровни
-@forward 'layers';
+// @forward 'layers';
 
 // * базовые стили элементов
 @forward 'default';
+
+// * шрифты
+@forward 'fonts';
 
 // * базовые стили шрифтов
 @forward 'typography';
