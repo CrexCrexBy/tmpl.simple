@@ -33,18 +33,19 @@
 		// --color-gray-20: hsl(0, 0%, 20%);
 		--color-gray-20: #333333;
 
+		// * base
 		--base-transition-duration: 0.2s;
 		--base-transition: var(--base-transition-duration) ease-in-out;
 
-		// ! move to light
 		// * body
+		--body-font-family: 'Roboto TMPL', sans-serif;
 		--body-background-color: var(--color-gray-92);
 		--body-color: var(--color-gray-56);
-
+		
+		// * logo
+		--logo-title-font-family: 'Ubuntu TMPL', sans-serif;
 		--logo-color: var(--color-gray-20);
 		--logo-inversion-color: var(--color-gray-100);
-
-		// ! move to dark
 
 	}
 }
