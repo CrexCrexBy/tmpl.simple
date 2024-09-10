@@ -21,7 +21,7 @@
 		}
 
 		&__title {
-			font-family: 'Ubuntu', sans-serif;
+			font-family: var(--logo-title-font-family);
 			font-size: 1.25rem;
 			font-weight: 300;
 		}
