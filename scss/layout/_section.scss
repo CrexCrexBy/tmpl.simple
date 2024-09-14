@@ -1,6 +1,11 @@
+@use '../abstracts/mixins' as mixin;
+
 @layer layout.section {
 	.section {
+		$this: &;
+
 		--section-padding: 5.625rem;
+		--section-hero-background-color: #fff;
 
 		padding: var(--section-padding) 0;
 
@@ -30,8 +35,38 @@
 		}
 
 		&--hero {
-			// min-height: calc(100dvh - 5rem - .0625rem);
-			padding: 0;
+			overflow: hidden;
+			background-color: var(--section-hero-background-color);
+			
+			& #{$this}__container {
+				display: flex;
+				align-items: center;
+				justify-content: space-between;
+				gap: 1.875rem;
+				max-height: clamp(29.375rem, -17.9934rem + 98.6842vw, 38.75rem);
+			}
+			& #{$this}__content {
+				margin-block: 2.5rem;
+				@include mixin.media-min('xsmall') {
+					max-width: clamp(24.375rem, 7.0066rem + 36.1842vw, 27.8125rem);
+				}
+			}
+
+			& h1 {
+				font-size: clamp(1.875rem, 0.5357rem + 6.6964vw, 3.75rem);
+				&:not(:last-child) {
+					margin-block-end: clamp(0.9375rem, 0.2679rem + 3.3482vw, 1.875rem);
+				}
+			}
+
+			& #{$this}__media {
+				align-self: flex-start;
+				// margin-block-start: -1.875rem;
+				margin-block-start: calc(-1 * clamp(0rem, -9.4737rem + 19.7368vw, 1.875rem));
+				@include mixin.media-max('xsmall') {
+					display: none;
+				}
+			}
 		}
 	}
 }

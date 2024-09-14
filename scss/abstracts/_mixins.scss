@@ -24,3 +24,19 @@
 		}
 	}
 }
+
+@mixin media-min-max($min-name, $max-name) {
+	$min: 0;
+	$max: 0;
+	@if map.get(variables.$breakpoints, $min-name) {
+		$min: #{map.get(variables.$breakpoints, $min-name)}px;
+	}
+	@if map.get(variables.$breakpoints, $max-name) {
+		$max: #{map.get(variables.$breakpoints, $max-name)}px;
+	}
+	@if ($min && $max) {
+		@media (#{$min}px <= width < #{$max}px) {
+			@content;
+		}
+	}
+}
