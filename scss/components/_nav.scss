@@ -1,4 +1,4 @@
-@use '../abstracts/mixins';
+@use '../abstracts/mixins' as mixin;
 
 @layer components.nav {
 	.nav {
@@ -40,7 +40,7 @@
 				flex: 1;
 			}
 
-			@include mixins.media-max('small') {
+			@include mixin.media-max('small') {
 				flex-wrap: wrap;
 			}
 		}
@@ -57,7 +57,7 @@
 				flex: 1;
 			}
 
-			@include mixins.media-max('xsmall') {
+			@include mixin.media-max('xsmall') {
 				width: 100%;
 				flex-basis: 100%;
 				justify-content: center;
@@ -79,7 +79,7 @@
 			gap: var(--nav-gap);
 			justify-content: center;
 
-			@include mixins.media-max('small') {
+			@include mixin.media-max('small') {
 				& {
 					position: relative;
 					order: 1;
@@ -108,7 +108,7 @@
 				flex: 1;
 			}
 
-			@include mixins.media-max('xsmall') {
+			@include mixin.media-max('xsmall') {
 				width: 100%;
 				flex-basis: 100%;
 				justify-content: space-between;
@@ -129,11 +129,11 @@
 			&--space-between-small {
 
 				// TODO: перенести в visible / hidden
-				@include mixins.media-max('xsmall') {
+				@include mixin.media-max('xsmall') {
 					display: none;
 				}
 
-				@include mixins.media-max('small') {
+				@include mixin.media-max('small') {
 					width: 100%;
 					justify-content: space-between;
 				}
@@ -147,6 +147,13 @@
 			min-height: var(--nav-item-min-height);
 
 			text-wrap: nowrap;
+
+			#{$this}__start &,
+			#{$this}__end & {
+				@include mixin.media-min-max('xsmall', 'medium') {
+					min-height: 2.75rem;
+				}
+			}
 		}
 
 		&__link {
@@ -155,6 +162,13 @@
 			align-items: center;
 			gap: var(--nav-item-gap);
 			min-height: var(--nav-item-min-height);
+
+			#{$this}__start &,
+			#{$this}__end & {
+				@include mixin.media-min-max('xsmall', 'medium') {
+					min-height: 2.75rem;
+				}
+			}
 
 			text-wrap: nowrap;
 		}
